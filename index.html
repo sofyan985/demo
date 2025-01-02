@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    /> -->
+    <style>
+
+
+
+
+      
+      </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="flex">
+        <div class="home-btn">
+          <button class="menu__icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button> 
+        </div>
+
+        <div class="search flex">
+          <input
+            id="search-text"
+            placeholder="Searth the internet..."
+            type="text"
+            name="text"
+            class="input"
+          />
+          <button id="search-button" class="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <button class="rounded-button"
+          onclick="openModal()">Sign in </button>
+        </div>
+    
+
+
+
+
+
+        <div class="modal-overlay" id="modal">
+          <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">✖</button>
+            <h2>Shop Smart<br>This Holiday Season</h2>
+            <p>
+              Sign up for our newsletter to find buying guides and exclusive offers.
+            </p>
+            <form>
+              <input type="email" placeholder="Email Address" required />
+              <button type="submit">SIGN UP</button>
+            </form>
+            <a href="#" onclick="closeModal()" class="no-thanks">NO THANKS</a>
+          </div>
+      </div>
+      </nav>
+
+      <div class="main-section container">
+        <div class="main-text roboto-mono-unique">
+          <h1  >NEWSY</h1>
+        </div>
+        <div class="links">
+          <div class="links-items  roboto-mono-unique"  >
+            <ul class="flex">
+              <li
+                class="hover--link link-item"
+                id="politics"
+                onclick="onNavitemClck('politics')"
+              >
+                News and Politics
+              </li>
+              <li
+                class="hover--link link-item"
+                id="finance"
+                onclick="onNavitemClck('finance')"
+              >
+                Finance
+              </li>
+              <li
+                class="hover--link link-item"
+                id="sports"
+                onclick="onNavitemClck('sports')"
+              >
+                Sports
+              </li>
+              <li
+                class="hover--link link-item"
+                id="art"
+                onclick="onNavitemClck('art')"
+              >
+                Art Gallery
+              </li>
+              <li
+                class="hover--link link-item"
+                id="Health"
+                onclick="onNavitemClck('Health')"
+              >
+                Health
+              </li>
+              <li
+                class="hover--link link-item"
+                id="travel"
+                onclick="onNavitemClck('travel')"
+              >
+                Travel
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <main>
+        <div class="card-container container flex" id="card-container"></div>
+      </main>
+
+      <template id="template-news-card">
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="https://via.placeholder.com/400x200"
+              alt="news-image"
+              id="news-image"
+            />
+          </div>
+          <div class="card-content">
+            <h3 id="news-title">This is the title</h3>
+            <h6 class="news-source">End Gadget 28.04.2024</h6>
+            <p class="news-desc" id="news-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Laboriosam a ipsum vel aliquid veritatis pariatur? Vel.
+            </p>
+          </div>
+        </div>
+      </template>
+    </div>
+    <div>
+      <footer class="footer">
+        <div class="footer-container container">
+          <div class="footer-section about">
+            <h2>About NEWSY</h2>
+            <p>
+              NEWSY brings you the latest news, articles, and insights from around the world. Stay informed with accurate and up-to-date reporting on politics, finance, sports, art, health, travel, and more.
+            </p>
+          </div>
+          <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="#politics">News and Politics</a></li>
+              <li><a href="#finance">Finance</a></li>
+              <li><a href="#sports">Sports</a></li>
+              <li><a href="#art">Art Gallery</a></li>
+              <li><a href="#health">Health</a></li>
+              <li><a href="#travel">Travel</a></li>
+            </ul>
+          </div>
+          <div class="footer-section contact">
+            <h2>Contact Us</h2>
+            <p><i class="fa-solid fa-envelope"></i> contact@pakistantimes.com</p>
+            <p><i class="fa-solid fa-phone"></i> +91-123-456-7890</p>
+            <p><i class="fa-solid fa-map-marker-alt"></i> Peshawar, Pakistan</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 NEWSY. All rights reserved.</p>
+          <p>Designed by <a href="#">Kashan Khattak,Hafsa Zainab,Sufian Babar</a></p>
+        </div>
+      </footer>
+      
+    </div>
+
+    <script src="script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+      integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+
+    <script>
+      // Function to open the modal
+      function openModal() {
+        document.getElementById("modal").style.display = "flex";
+      }
+
+      // Function to close the modal
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

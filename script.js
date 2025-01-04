@@ -76,80 +76,8 @@ serchButton.addEventListener("click", () => {
   fetchNews(querry);
 })
 ;
-// Enhancing the website with the suggested changes
 
 
 
-// Adding a loading spinner for fetching news
-const showLoading = () => {
-  const loader = document.createElement('div');
-  loader.id = 'loading-spinner';
-  loader.style.position = 'fixed';
-  loader.style.top = '50%';
-  loader.style.left = '50%';
-  loader.style.transform = 'translate(-50%, -50%)';
-  loader.style.border = '8px solid #f3f3f3';
-  loader.style.borderTop = '8px solid #007BFF';
-  loader.style.borderRadius = '50%';
-  loader.style.width = '50px';
-  loader.style.height = '50px';
-  loader.style.animation = 'spin 1s linear infinite';
 
-  const spinnerStyles = document.createElement('style');
-  spinnerStyles.textContent = `
-      @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-      }
-  `;
-  document.head.appendChild(spinnerStyles);
 
-  document.body.appendChild(loader);
-};
-
-const hideLoading = () => {
-  const loader = document.getElementById('loading-spinner');
-  if (loader) loader.remove();
-};
-
-// Modify fetchNews to use loading spinner
-async function fetchNews(query) {
-  showLoading();
-  try {
-      const res = await fetch(`${url}${query}&apiKey=${APIkey}`);
-      const data = await res.json();
-      allData(data.articles);
-  } catch (error) {
-      console.error('Error fetching news:', error);
-      alert('Failed to load news. Please try again later.');
-  } finally {
-      hideLoading();
-  }
-}
-
-// Adding a "Back to Top" button
-const backToTopButton = document.createElement('button');
-backToTopButton.textContent = '↑ Top';
-backToTopButton.style.position = 'fixed';
-backToTopButton.style.bottom = '50px';
-backToTopButton.style.right = '10px';
-backToTopButton.style.padding = '10px';
-backToTopButton.style.backgroundColor = '#007BFF';
-backToTopButton.style.color = '#FFF';
-backToTopButton.style.border = 'none';
-backToTopButton.style.borderRadius = '5px';
-backToTopButton.style.cursor = 'pointer';
-backToTopButton.style.display = 'none';
-
-backToTopButton.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-document.body.appendChild(backToTopButton);
-
-window.addEventListener('scroll', () => {
-  backToTopButton.style.display = window.scrollY > 300 ? 'block' : 'none';
-});
-
-// Additional Enhancements Placeholder
-// Add further features such as category filters, pagination, etc., here.
